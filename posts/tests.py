@@ -5,7 +5,8 @@ class PostModelTest(TestCase):
     def setUp(self):
         self.post = Post.objects.create(
             title="Тестовый заголовок",
-            content="Тестовое содержимое"
+            content="Тестовое содержимое",
+            author="Тестовый автор"
         )
 
 class PostViewTest(TestCase):
@@ -25,3 +26,4 @@ class PostViewTest(TestCase):
         response = self.client.get('/posts/')
         self.assertContains(response, "Тест 1")
         self.assertContains(response, "Тест 2")
+
